@@ -1,21 +1,30 @@
-# ใช้ Python version ที่คุณพัฒนา
-FROM python:3.11-slim
+ARG PYTHON_VERSION=3.13-slim
 
-# ตั้งค่า environment variables
+FROM python:${PYTHON_VERSION}
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app
+# install psycopg2 dependencies.
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# ลง dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN mkdir -p /code
 
-# ก๊อปปี้โค้ดทั้งหมด
-COPY . .
+WORKDIR /code
 
-# สั่งรันรวบรวมไฟล์ static (สำหรับ whitenoise)
+COPY requirements.txt /tmp/requirements.txt
+RUN set -ex && \
+    pip install --upgrade pip && \
+    pip install -r /tmp/requirements.txt && \
+    rm -rf /root/.cache/
+COPY . /code
+
+ENV SECRET_KEY "iLGXP82ctiaNBs9WXfiNVbTGD9PoCjXjgfbUl4WYevw9Gb0u3A"
 RUN python manage.py collectstatic --noinput
 
-# สั่งรัน server ผ่าน gunicorn (พอร์ต 8080 ตรงกับที่ตั้งในหน้าเว็บ)
-CMD ["gunicorn", "--bind", ":8080", "config.wsgi"]
+EXPOSE 8000
+
+CMD ["gunicorn","--bind",":8000","--workers","2","config.wsgi"]

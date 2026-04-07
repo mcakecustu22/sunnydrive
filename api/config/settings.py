@@ -3,6 +3,10 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+
+
+
 # Lightweight .env loader for local development.
 env_path = BASE_DIR / ".env"
 if env_path.exists():
@@ -16,8 +20,10 @@ if env_path.exists():
 DEBUG = os.getenv("DEBUG", "False") == "True"
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+
 if os.getenv("FLY_APP_NAME"):
     ALLOWED_HOSTS.append(f"{os.getenv('FLY_APP_NAME')}.fly.dev")
+
 GOOGLE_SOLAR_API_KEY = os.environ.get("GOOGLE_SOLAR_API_KEY")
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -84,4 +90,11 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOW_ALL_ORIGINS = True
+# ตั้งค่า CORS เพื่อให้ Vercel ยิง API มาหาได้
+CORS_ALLOWED_ORIGINS = [
+    "https://sunnydrive.vercel.app",
+]
+
+# หากต้องการให้ครอบคลุมตอนพัฒนา (Optional)
+if DEBUG:
+    CORS_ALLOWED_ORIGINS.append("http://localhost:5173") # พอร์ตปกติของ Vite

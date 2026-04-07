@@ -7,5 +7,6 @@ django
 gunicorn
 whitenoise
 django-cors-headers
-rest_framework
+djangorestframework
 requests  
+dotenv
