@@ -1,2 +1,11 @@
-pip install gunicorn whitenoise django-cors-headers
-pip freeze > requirements.txt
+Django>=4.0
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary 
+django
+gunicorn
+whitenoise
+django-cors-headers
+rest_framework
+requests  

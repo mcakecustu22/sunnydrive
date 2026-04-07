@@ -15,7 +15,9 @@ if env_path.exists():
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+if os.getenv("FLY_APP_NAME"):
+    ALLOWED_HOSTS.append(f"{os.getenv('FLY_APP_NAME')}.fly.dev")
 GOOGLE_SOLAR_API_KEY = os.environ.get("GOOGLE_SOLAR_API_KEY")
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -60,6 +62,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+import dj_database_url
+
+# settings.py
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -67,11 +72,15 @@ DATABASES = {
     }
 }
 
+# สำคัญ: ต้องระบุ STATIC_ROOT เพื่อให้รันบนเซิร์ฟเวอร์ได้
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 LANGUAGE_CODE = "th-th"
 TIME_ZONE = "Asia/Bangkok"
 USE_I18N = True
 USE_TZ = True
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
