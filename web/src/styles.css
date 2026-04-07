@@ -1,0 +1,565 @@
+* {
+  box-sizing: border-box;
+  font-family: Segoe UI, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #fffdf3;
+  color: #18212e;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: #ffffff;
+  border-bottom: 1px solid #e8edf5;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandIcon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #f1f4fb;
+  color: #1a6eea;
+  font-weight: 800;
+}
+
+.brandTitle {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.brandSub {
+  font-size: 12px;
+  opacity: 0.78;
+  margin-top: 2px;
+}
+
+.shareBtn {
+  border: none;
+  background: #1273ea;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 18px;
+  padding: 18px 22px 34px;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.leftPanel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 10px 22px rgba(10, 24, 52, 0.06);
+  border: 1px solid rgba(24, 33, 46, 0.06);
+}
+
+.panelCard {
+  border: 2px solid #f0b429;
+}
+
+.panelHeader {
+  font-weight: 900;
+  font-size: 16px;
+  padding: 6px 4px 14px;
+  color: #92400e;
+}
+
+.section {
+  padding: 12px 6px;
+  border-top: 1px dashed rgba(24, 33, 46, 0.12);
+}
+
+.section:first-of-type {
+  border-top: none;
+}
+
+.labelRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.labelTitle {
+  font-weight: 800;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.labelValue {
+  font-weight: 900;
+  color: #0f2c55;
+}
+
+.range {
+  width: 100%;
+}
+
+.rangeHints {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.65;
+  margin-top: 8px;
+}
+
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(24, 33, 46, 0.16);
+  background: #fff;
+}
+
+.ctaRow {
+  padding: 14px 6px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.primaryBtn {
+  width: 100%;
+  border: none;
+  background: #f0b429;
+  color: #1b2b0f;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(240, 180, 41, 0.24);
+}
+
+.primaryBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.smallNote {
+  font-size: 12px;
+  opacity: 0.72;
+}
+
+.errorBox {
+  margin-top: 14px;
+  background: #fff0f0;
+  border: 1px solid rgba(235, 87, 87, 0.35);
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #b30000;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pillRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  border: 1px solid rgba(24, 33, 46, 0.16);
+  background: #f7f9fc;
+  color: #152236;
+  padding: 10px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.pill:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.pillActive {
+  background: #f0b429;
+  border-color: #f0b429;
+  box-shadow: 0 10px 18px rgba(240, 180, 41, 0.22);
+}
+
+.rightPanel {
+  flex: 1;
+}
+
+.centerPanel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 10px 22px rgba(10, 24, 52, 0.06);
+}
+
+.hero {
+  background: #fde68a;
+  border-radius: 18px;
+  padding: 18px 20px;
+  color: #1b2b0f;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.yellowHero {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+}
+
+.heroTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.heroTitle {
+  font-weight: 900;
+  opacity: 0.95;
+}
+
+.heroSubtitle {
+  font-weight: 700;
+  opacity: 0.76;
+  font-size: 12px;
+}
+
+.heroValue {
+  margin-top: 6px;
+  font-size: 42px;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.cards4 {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.compactCards .statCard {
+  padding: 10px 12px;
+}
+
+.compactCards .statValue {
+  font-size: 20px;
+}
+
+.statCard {
+  background: #ffffff;
+  border: 1px solid rgba(24, 33, 46, 0.08);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 18px rgba(10, 24, 52, 0.04);
+}
+
+.statLabel {
+  font-size: 13px;
+  opacity: 0.72;
+  font-weight: 800;
+}
+
+.statValue {
+  margin-top: 6px;
+  font-size: 26px;
+  font-weight: 1000;
+}
+
+.chartCard {
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(24, 33, 46, 0.08);
+  box-shadow: 0 10px 18px rgba(10, 24, 52, 0.04);
+}
+
+.chartTitle {
+  font-weight: 1000;
+  margin-bottom: 10px;
+  color: #78350f;
+}
+
+.chartBody {
+  padding-top: 6px;
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 130px 1fr 150px;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.chartRowLabel {
+  font-weight: 900;
+  color: #0f2c55;
+}
+
+.chartRowLabelGreen {
+  color: #1d7f4a;
+}
+
+.chartRowValue {
+  font-weight: 900;
+  text-align: right;
+  color: #0f2c55;
+}
+
+.barTrack {
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(24, 33, 46, 0.06);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.barRed {
+  background: #ef4444;
+}
+
+.barGreen {
+  background: #2f9b5f;
+}
+
+.legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.legendItem {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 999px;
+}
+
+.dotRed {
+  background: #ef4444;
+}
+
+.dotGreen {
+  background: #2f9b5f;
+}
+
+.dotBlue {
+  background: #1d74ff;
+}
+
+.bottomCta {
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(24, 33, 46, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.bottomCtaText {
+  flex: 1;
+}
+
+.bottomCtaTitle {
+  font-weight: 1000;
+}
+
+.bottomCtaSub {
+  margin-top: 6px;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.bottomCtaButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(24, 33, 46, 0.12);
+  background: #f7f9fc;
+  color: #14213a;
+  border-radius: 14px;
+  padding: 11px 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background: #ffffff;
+}
+
+.sep {
+  opacity: 0.5;
+}
+
+@media (max-width: 980px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  .chartRow {
+    grid-template-columns: 120px 1fr 120px;
+  }
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.miniField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.miniLabel {
+  font-size: 12px;
+  font-weight: 900;
+  opacity: 0.85;
+}
+
+.miniInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(24, 33, 46, 0.16);
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roadmapLine {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 6px;
+  margin-bottom: 14px;
+}
+
+.roadmapItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.roadmapDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  margin-top: 5px;
+  background: #f59e0b;
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+}
+
+.roadmapMonth {
+  font-weight: 900;
+  color: #92400e;
+  font-size: 13px;
+}
+
+.roadmapTitle {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.miniMetric {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.miniMetricLabel {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.miniMetricValue {
+  font-size: 28px;
+  font-weight: 900;
+  color: #92400e;
+}
+
+.loanCard {
+  background: #fff;
+  border: 1px dashed #f59e0b;
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.loanTitle {
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #92400e;
+}
+
+.summaryList {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.ctaBox {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
