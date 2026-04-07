@@ -3,5 +3,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("consulting.urls")),
+    # ลบคำว่า "api/" ออก ให้เหลือแค่นี้ 👇
+    path("", include("consulting.urls")), 
 ]
