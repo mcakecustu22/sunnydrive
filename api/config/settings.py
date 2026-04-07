@@ -92,7 +92,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # ตั้งค่า CORS เพื่อให้ Vercel ยิง API มาหาได้
 CORS_ALLOWED_ORIGINS = [
-    "https://sunnydrive.vercel.app",
+    "https://sunnydrive1.vercel.app",       
 ]
 
 # หากต้องการให้ครอบคลุมตอนพัฒนา (Optional)
